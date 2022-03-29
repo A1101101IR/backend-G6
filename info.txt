@@ -23,3 +23,6 @@ säg att vi har en html sidan som har olika delar som nedan
 I Wordpress man delar denna struktur i flera delar för att sidan ska se ut som en html sida
 när den visas i webläsaren. detta eftersom vi byggar sidan i php. och sidans innehåll byggs
 av det som vi har i vår
+
+
+blablabla
