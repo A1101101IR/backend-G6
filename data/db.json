@@ -1,0 +1,24 @@
+{
+    "tweet": [
+      {
+        "id": 1,
+        "title": "Test",
+        "description": "loremmmmmmm",
+        "userId": "1"
+      },
+      {
+        "id": 2,
+        "title": "Testd",
+        "description": "loremmmmmmddfgggm"
+      }
+      
+    ],
+    "user": [
+      {
+        "id": 1,
+        "username": "Amir",
+        "password": "blablabla",
+        "userId": "1"
+      }
+    ]
+  }
