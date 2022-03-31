@@ -1,24 +1,22 @@
 {
-    "tweet": [
-      {
-        "id": 1,
-        "title": "Test",
-        "description": "loremmmmmmm",
-        "userId": "1"
-      },
-      {
-        "id": 2,
-        "title": "Testd",
-        "description": "loremmmmmmddfgggm"
-      }
-      
-    ],
-    "user": [
-      {
-        "id": 1,
-        "username": "Amir",
-        "password": "blablabla",
-        "userId": "1"
-      }
-    ]
-  }
+  "tweet": [
+    {
+      "title": "Angelica",
+      "description": "this is a test",
+      "id": 1
+    },
+    {
+      "title": "hej1",
+      "description": "hejhej",
+      "id": 3
+    }
+  ],
+  "user": [
+    {
+      "id": 1,
+      "username": "Amir",
+      "password": "blablabla",
+      "userId": "1"
+    }
+  ]
+}
