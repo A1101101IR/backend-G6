@@ -3,6 +3,113 @@ Theme Name: Backendutveckling
 Author: Amir Nabizadeh, Angelica Löfland, Filip Cepraga.
 */
 
+/* Removed standard padding & margin */
+* {
+  padding: 0;
+  margin: 0;
+}
 body {
-  background-color: red;
+  background-color: #06d6a0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-content-container {
+  width: 80vw;
+  height: 100vh;
+  background-color: white;
+  margin-top: 2%;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Contains textarea for tweet + buttons to select user + button to send */
+.text-area-container {
+  border: 1px solid black;
+  width: 80%;
+  height: fit-content;
+  margin: 2%;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.user-select-container {
+  width: 100px;
+  height: 25px;
+  margin-bottom: 15px;
+}
+
+/* dropdown menu for selecting user */
+.user-dropdown {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+
+/* input area for posting tweet/post */
+#tweet {
+  width: 100%;
+  border-radius: 5px;
+  font-size: 1.5rem;
+}
+
+.btn-container {
+  width: 100px;
+  height: 25px;
+  border-radius: 5px;
+  /* margin top set to 10, total is 15px */
+  margin-top: 10px;
+}
+
+.tweet-btn {
+  width: 100%;
+  height: 100%;
+}
+
+/* SECTION FOR TWEETED CONTENT */
+.tweets-container {
+  border: 1px solid black;
+  width: 80%;
+  height: 80%;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 2%;
+  overflow-x: hidden;
+  overflow: auto;
+}
+
+/* Tweet card - container for tweets */
+.tweet-card-container {
+  border: 2px solid rgb(0, 0, 0);
+  width: 100%;
+  max-height: 20%;
+  height: 20%;
+  display: flex;
+}
+.avatar {
+  height: 100px;
+  width: 100px;
+  background-image: url('./assets/avatar.png');
+  background-size: contain;
+  margin: 2%;
+  border-radius: 100%;
+}
+
+.tweet-text {
+  text-align: center;
+  align-items: center;
+  width: calc(100% - 200px);
+  background-color: #06d6a0;
+  overflow: auto;
+  padding: 5px;
+}
+
+.btn-tweet {
+  width: 100%;
+  height: 50%;
 }
