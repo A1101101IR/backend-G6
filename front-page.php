@@ -57,17 +57,18 @@
       };
       let postData = await fetch("http://localhost:8000/tweet", requestOptions);
       let myData = await postData.json();
-      btn = `
-      <div>
-      <button class'btn-in-post edit' onClick='putPost(${post.id})'>Edit</button>
-      <button class='btn-tweet delete' onClick='deleteTweet(${post.id})'>Delete</button>
-      <button class'btn-in-post edit' onClick='updatePost(${post.id})'>update</button>
-      </div>`
+      
       let output = "";
       let myBtn = "";
       if (myData) {
         myData.map((post) => {
-          if (test == post.author) { myBtn = btn } else { myBtn = ""}
+          btn = `
+          <div>
+          <button class'btn-in-post edit' onClick='putPost(${post.id})'>Edit</button>
+          <button class='btn-tweet delete' onClick='deleteTweet(${post.id})'>Delete</button>
+          <button class'btn-in-post edit' onClick='updatePost(${post.id})'>update</button>
+          </div>`
+          if (currentUser == post.author) { myBtn = btn } else { myBtn = ""}
           output += `<div class="tweet-card-container" key={post.id}>  
               <div class="avatar">
                 <img src="https://t1.gstatic.com/licensed-image?q=tbn:ANd9GcT0BTHYsJqrUEhxjVReplkbGQlNLDzaFfKwIDXf_aiY4isJBd-3_fLVYpIWNi6r7P604hS3DRwAoyf_jnPhpAs" alt="">
@@ -89,8 +90,10 @@
     /* skapar nya inlägg och skickar till databasen */
     async function postTweet() {
       input = document.getElementById('description').value;
+      author = currentUser;
       let tweet = {
-        description : input
+        description : input,
+        author : author,
       };
       await fetch("http://localhost:8000/tweet/", {
         method: 'POST',
@@ -140,7 +143,7 @@
       };
     
     getTweet();
-    let test = "<?php echo $firstName ?>";
+    let currentUser = "<?php echo $firstName ?>";
   </script>
 
 
