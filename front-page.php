@@ -91,6 +91,10 @@
     async function postTweet() {
       input = document.getElementById('description').value;
       author = currentUser;
+      if(input.length == 0) {
+        alert('You cannot post an empty tweet!');
+        return; 
+      }
       let tweet = {
         description : input,
         author : author,
