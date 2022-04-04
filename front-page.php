@@ -34,7 +34,7 @@
     </div>
 
     <div class="tweets-container">
-
+    
     <div id="post"></div>
       
 
@@ -48,7 +48,8 @@
   <script>
     
     /* Hämtar data coh skapar inlägg av de */
-    async function getPost() {
+
+    async function getTweet() {
       var requestOptions = {
         method: 'GET',
         redirect: 'follow'
@@ -66,10 +67,9 @@
                 ${post.description}
               </div>
               <div class="btn-container-post">
-
+                <?php $name = "amir"; if ($name == 'amir') { echo 'yes'; } else { echo "no"; }?>
                 <button class="btn-in-post edit">Edit</button>
                 <button class="btn-tweet delete" onClick="deleteTweet(${post.id})">Delete</button>
-                
               </div>
           </div>`
         })
@@ -92,7 +92,7 @@
         body: JSON.stringify(tweet),
         redirect: 'follow'
       })
-      getPost();
+      getTweet();
     };
     
 
@@ -115,7 +115,7 @@
         }, 500);
       };
     
-    getPost();
+    getTweet();
   </script>
 
 
