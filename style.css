@@ -167,6 +167,7 @@ body {
   border: none;
   color: white;
   font-size: 15px;
+  min-width: 58.38px;
   margin: 5px;
   padding: 5px;
 }
@@ -179,16 +180,7 @@ body {
   background-color: #297561;
   border-radius: 5px;
   border: none;
-  color: white;
-  font-size: 15px;
-  margin: 5px;
-  padding: 5px;
-}
-
-.btn-in-post {
-  background-color: #297561;
-  border-radius: 5px;
-  border: none;
+  min-width: 58.38px;
   color: white;
   font-size: 15px;
   margin: 5px;
