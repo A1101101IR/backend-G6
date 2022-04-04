@@ -115,7 +115,7 @@ body {
 /* SECTION FOR TWEETED CONTENT */
 .tweets-container {
   border: 1px solid black;
-  width: 80%;
+  width: 90%;
   height: 80%;
   padding: 20px;
   border-radius: 10px;
@@ -128,7 +128,7 @@ body {
 .tweet-card-container {
   position: relative;
   border: 2px solid rgb(0, 0, 0);
-  width: 100%;
+  width: 80%;
   /* max-height: 20%; */
   min-height: 20%;
   display: flex;
@@ -145,6 +145,15 @@ body {
   border-radius: 100%;
   background-color: rgb(133, 243, 127);
   margin: auto;
+}
+
+.postInfo {
+  width: 150px;
+  min-height: 20%;
+  background-color: rgb(0, 225, 255);
+  margin: 5px;
+  border-radius: 5px;
+  text-align: center;
 }
 
 .tweet-text {

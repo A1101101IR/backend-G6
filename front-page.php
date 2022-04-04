@@ -73,6 +73,10 @@
               <div class="avatar">
                 <img src="https://t1.gstatic.com/licensed-image?q=tbn:ANd9GcT0BTHYsJqrUEhxjVReplkbGQlNLDzaFfKwIDXf_aiY4isJBd-3_fLVYpIWNi6r7P604hS3DRwAoyf_jnPhpAs" alt="">
               </div>
+              <div class="postInfo">
+              <p>${post.author}</p>
+              <p>${post.date}</p>
+              </div> 
               <div class="tweet-text" id=${post.id}  >
                 ${post.description}
               </div>
@@ -95,9 +99,15 @@
         alert('You cannot post an empty tweet!');
         return; 
       }
+      let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+      let date = new Date(Date.now());
+     
+      
       let tweet = {
         description : input,
         author : author,
+        date :  date.toLocaleDateString("en-SE", options), 
+
       };
       await fetch("http://localhost:8000/tweet/", {
         method: 'POST',
