@@ -115,7 +115,7 @@ body {
 /* SECTION FOR TWEETED CONTENT */
 .tweets-container {
   border: 1px solid black;
-  width: 90%;
+  width: 79%;
   height: 80%;
   padding: 20px;
   border-radius: 10px;
@@ -128,7 +128,7 @@ body {
 .tweet-card-container {
   position: relative;
   border: 2px solid rgb(0, 0, 0);
-  width: 80%;
+  width: 100%;
   /* max-height: 20%; */
   min-height: 20%;
   display: flex;
@@ -147,9 +147,21 @@ body {
   margin: auto;
 }
 
+.avatar img {
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+  /* margin-top: 5px; */
+}
+
 .postInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
   width: 150px;
-  min-height: 20%;
+  height: 100px;
   background-color: rgb(0, 225, 255);
   margin: 5px;
   border-radius: 5px;
