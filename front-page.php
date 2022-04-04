@@ -10,7 +10,7 @@
     
     <div class="text-area-container">
       <div>
-        <p>
+        <p class="currentUserText">
         <?php
         $user = get_current_user_id();
         $userdata = get_userdata($user);
@@ -19,7 +19,7 @@
         ?>
         </p>
         <textarea name="description" id="description" maxlength="240" rows="8" cols="80"></textarea>
-        <button onClick="postTweet()" class="tweet-btn">Chrip it/Post</button>
+        <button onClick="postTweet()" class="tweet-btn chirp">Chrip it/Post</button>
       </div>
       <!-- <div class="user-select-container">
         <label for="user-select">

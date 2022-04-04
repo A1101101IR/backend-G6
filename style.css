@@ -49,8 +49,23 @@ body {
   width: 80%;
   height: fit-content;
   margin: 2%;
-  padding: 20px;
+  padding: 10px;
   border-radius: 10px;
+}
+
+.currentUserText {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+#description {
+  width: 100%;
+}
+
+.chirp {
+  margin: 0 auto;
 }
 
 .user-select-container {
@@ -90,6 +105,7 @@ body {
   background-color: #297561;
   color: rgb(255, 255, 255);
   font-size: 20px;
+  display: block;
 }
 
 .tweet-btn:hover {
