@@ -3,20 +3,21 @@
 <section>
   <!-- Hämtar titel och visar i en h1 tag -->
   <h1><?php single_cat_title(); ?></h1>
-  <p>
-  <?php
-  $user = get_current_user_id();
-  $userdata = get_userdata($user);
-  $firstName = $userdata->first_name;
-  echo $firstName;
- ?>
-  </p>
+  
   
   
   <div class="main-content-container">
-
+    
     <div class="text-area-container">
       <div>
+        <p>
+        <?php
+        $user = get_current_user_id();
+        $userdata = get_userdata($user);
+        $firstName = $userdata->first_name;
+        echo $firstName;
+        ?>
+        </p>
         <textarea name="description" id="description" maxlength="240" rows="8" cols="80"></textarea>
         <button onClick="postTweet()" class="tweet-btn">Chrip it/Post</button>
       </div>
@@ -66,7 +67,7 @@
       let myBtn = "";
       if (myData) {
         myData.map((post) => {
-          if (test == post.author) { myBtn = btn}
+          if (test == post.author) { myBtn = btn } else { myBtn = ""}
           output += `<div class="tweet-card-container" key={post.id}>  
               <div class="avatar">
                 <img src="https://t1.gstatic.com/licensed-image?q=tbn:ANd9GcT0BTHYsJqrUEhxjVReplkbGQlNLDzaFfKwIDXf_aiY4isJBd-3_fLVYpIWNi6r7P604hS3DRwAoyf_jnPhpAs" alt="">
@@ -103,6 +104,7 @@
 
     function putPost(id) {
       editTweetText = document.getElementById(id).innerText;
+      console.log(editTweetText)
       editTweet = document.getElementById(id);
       editTweet.setAttribute("contenteditable", "true");
     }
