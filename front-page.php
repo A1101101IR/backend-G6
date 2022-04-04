@@ -3,10 +3,16 @@
 <section>
   <!-- Hämtar titel och visar i en h1 tag -->
   <h1><?php single_cat_title(); ?></h1>
+  <p>
   <?php
-  $firstname = get_the_author_meta('first_name');
-  $lastname = get_the_author_meta('last_name');
-  ?>
+  $user = get_current_user_id();
+  $userdata = get_userdata($user);
+  $firstName = $userdata->first_name;
+  echo $firstName;
+ ?>
+  </p>
+  
+  
   <div class="main-content-container">
 
     <div class="text-area-container">
@@ -37,18 +43,12 @@
     
     <div id="post"></div>
       
-
+    
     </div>
 <!-- end content container -->
   </div>
-
-
-
-
   <script>
-    
     /* Hämtar data coh skapar inlägg av de */
-
     async function getTweet() {
       var requestOptions = {
         method: 'GET',
@@ -56,20 +56,26 @@
       };
       let postData = await fetch("http://localhost:8000/tweet", requestOptions);
       let myData = await postData.json();
+      btn = `
+      <div>
+      <button class'btn-in-post edit' onClick='putPost(${post.id})'>Edit</button>
+      <button class='btn-tweet delete' onClick='deleteTweet(${post.id})'>Delete</button>
+      <button class'btn-in-post edit' onClick='updatePost(${post.id})'>update</button>
+      </div>`
       let output = "";
+      let myBtn = "";
       if (myData) {
         myData.map((post) => {
+          if (test == post.author) { myBtn = btn}
           output += `<div class="tweet-card-container" key={post.id}>  
               <div class="avatar">
                 <img src="https://t1.gstatic.com/licensed-image?q=tbn:ANd9GcT0BTHYsJqrUEhxjVReplkbGQlNLDzaFfKwIDXf_aiY4isJBd-3_fLVYpIWNi6r7P604hS3DRwAoyf_jnPhpAs" alt="">
               </div>
-              <div class="tweet-text" contenteditable="true">
+              <div class="tweet-text" id=${post.id}  >
                 ${post.description}
               </div>
               <div class="btn-container-post">
-                <?php $name = "amir"; if ($name == 'amir') { echo 'yes'; } else { echo "no"; }?>
-                <button class="btn-in-post edit">Edit</button>
-                <button class="btn-tweet delete" onClick="deleteTweet(${post.id})">Delete</button>
+                ${myBtn}
               </div>
           </div>`
         })
@@ -78,7 +84,6 @@
     }
 
 
-    
 
     /* skapar nya inlägg och skickar till databasen */
     async function postTweet() {
@@ -94,6 +99,23 @@
       })
       getTweet();
     };
+
+
+    function putPost(id) {
+      editTweetText = document.getElementById(id).innerText;
+      editTweet = document.getElementById(id);
+      editTweet.setAttribute("contenteditable", "true");
+    }
+
+    function updatePost(id) {
+      newTweet = document.getElementById(id).value;
+      console.log(id);
+    }
+    /* TODO: send put req to databas, update post & make update btn only appear after clicking edit on specific div*/
+
+
+
+
     
 
     /* tar bort inlägg och gör en reload på sidan för att uppdatera output */
@@ -116,6 +138,7 @@
       };
     
     getTweet();
+    let test = "<?php echo $firstName ?>";
   </script>
 
 
