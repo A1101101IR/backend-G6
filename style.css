@@ -25,11 +25,10 @@ body {
 }
 
 .header-name {
-
-color:  black;
-margin-top: 2%;
-font-family: 'Roboto', sans-serif;
-font-size: 45px;
+  color: black;
+  margin-top: 2%;
+  font-family: 'Roboto', sans-serif;
+  font-size: 45px;
 }
 
 .main-content-container {
@@ -91,11 +90,10 @@ font-size: 45px;
   background-color: #297561;
   color: rgb(255, 255, 255);
   font-size: 20px;
-  
 }
 
 .tweet-btn:hover {
-background-color: #25cda0 ;
+  background-color: #25cda0;
 }
 
 /* SECTION FOR TWEETED CONTENT */
@@ -150,14 +148,12 @@ background-color: #25cda0 ;
   border: none;
 }
 
-
 .btn-container-post {
   display: flex;
   flex-direction: column-reverse;
   width: 100px;
   height: 100%;
   text-align: center;
-
 }
 
 .btn-container-post button {
@@ -180,14 +176,23 @@ background-color: #25cda0 ;
 }
 
 .btn-tweet {
-background-color: #297561;
-border-radius: 5px;
-border: none;
-color: white;
-font-size: 15px;
-margin: 5px;
-padding: 5px;
+  background-color: #297561;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  font-size: 15px;
+  margin: 5px;
+  padding: 5px;
+}
 
+.btn-in-post {
+  background-color: #297561;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  font-size: 15px;
+  margin: 5px;
+  padding: 5px;
 }
 
 .btn-tweet:hover {
