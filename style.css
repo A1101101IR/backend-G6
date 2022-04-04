@@ -4,6 +4,9 @@ Author: Amir Nabizadeh, Angelica Löfland, Filip Cepraga.
 */
 
 /* Removed standard padding & margin */
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto:wght@400;500&display=swap');
+
 * {
   padding: 0;
   margin: 0;
@@ -14,6 +17,19 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.logo {
+  text-decoration: none;
+  margin-top: 20px;
+}
+
+.header-name {
+
+color:  black;
+margin-top: 2%;
+font-family: 'Roboto', sans-serif;
+font-size: 45px;
 }
 
 .main-content-container {
@@ -67,8 +83,19 @@ body {
 }
 
 .tweet-btn {
-  width: 100%;
-  height: 100%;
+  /*width: 100%;
+  height: 100%;*/
+  padding: 5px 10px 5px 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #297561;
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  
+}
+
+.tweet-btn:hover {
+background-color: #25cda0 ;
 }
 
 /* SECTION FOR TWEETED CONTENT */
@@ -94,6 +121,7 @@ body {
   flex-grow: 1;
   justify-content: center;
   margin-bottom: 10px;
+  border: none;
 }
 .avatar {
   height: 100px;
@@ -109,10 +137,19 @@ body {
   text-align: center;
   align-items: center;
   width: calc(100% - 200px);
-  background-color: #06d6a0;
+  background-color: #06d69e63;
   overflow: auto;
-  padding: 5px;
+  padding: 8px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
 }
+
+.post {
+  padding: 10px;
+  border: none;
+}
+
 
 .btn-container-post {
   display: flex;
@@ -120,9 +157,39 @@ body {
   width: 100px;
   height: 100%;
   text-align: center;
+
 }
 
 .btn-container-post button {
-  background-color: red;
+  /*background-color: red;*/
   height: fit-content;
+}
+
+.btn-in-post {
+  background-color: #297561;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  font-size: 15px;
+  margin: 5px;
+  padding: 5px;
+}
+
+.btn-in-post:hover {
+  background-color: #25cda0;
+}
+
+.btn-tweet {
+background-color: #297561;
+border-radius: 5px;
+border: none;
+color: white;
+font-size: 15px;
+margin: 5px;
+padding: 5px;
+
+}
+
+.btn-tweet:hover {
+  background-color: #25cda0;
 }

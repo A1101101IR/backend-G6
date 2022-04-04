@@ -22,7 +22,7 @@
         <textarea name="tweets" id="tweet" cols="30" rows="5"></textarea>
       </div>
       <div class="btn-container">
-        <button class="tweet-btn" onClick="postTweet()">Chrip it/Post</button>
+        <button class="tweet-btn" onClick="postTweet()">Post</button>
       </div>
     </div>
 
