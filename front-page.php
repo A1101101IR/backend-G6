@@ -1,15 +1,10 @@
 <?php get_header(); ?>
 
 <section>
-  <!-- Hämtar titel och visar i en h1 tag -->
-  <h1><?php single_cat_title(); ?></h1>
-  
-  
-  
   <div class="main-content-container">
-    
     <div class="text-area-container">
       <div>
+        <!-- Vi hämtar user id, sedan hämtar userdata, hämtar user firstName -->
         <p class="currentUserText">
         <?php
         $user = get_current_user_id();
@@ -18,38 +13,24 @@
         echo $firstName;
         ?>
         </p>
+        <!-- Textarea för att skicka data vid post req. -->
         <textarea name="description" id="description" maxlength="240" rows="8" cols="80"></textarea>
         <button onClick="postTweet()" class="tweet-btn chirp">Chrip it/Post</button>
       </div>
-      <!-- <div class="user-select-container">
-        <label for="user-select">
-          <select name="user" id="user-select" class="user-dropdown">
-            <option value="">Select User</option>
-            <option value="amir">Amir</option>
-            <option value="angelica">Angelica</option>
-            <option value="filip">Filip</option>
-          </select>
-        </label>
-      </div>
-      <div class="text-input">
-        <label for="tweet"></label>
-        <textarea name="tweets" id="tweet" cols="30" rows="5"></textarea>
-      </div>
-      <div class="btn-container">
-        <button class="tweet-btn" onClick="postTweet()">Chrip it/Post</button>
-      </div> -->
     </div>
-
+    <!-- container för tweets som fylls på när man besöker sidan. -->
     <div class="tweets-container">
-    
-    <div id="post"></div>
-      
-    
+      <div id="post"></div>
     </div>
-<!-- end content container -->
+    <!-- end content container -->
   </div>
+
+
+
+
+  <!-- våran script tag som innehåller samtliga funktioner. -->
   <script>
-    /* Hämtar data coh skapar inlägg av de */
+    /* Hämtar data coh skapa inlägg av data */
     async function getTweet() {
       var requestOptions = {
         method: 'GET',
@@ -57,7 +38,6 @@
       };
       let postData = await fetch("http://localhost:8000/tweet", requestOptions);
       let myData = await postData.json();
-      
       let output = "";
       let myBtn = "";
       if (myData) {
@@ -91,7 +71,7 @@
 
 
 
-    /* skapar nya inlägg och skickar till databasen */
+    /* Skapar nya inlägg och skickar till databasen */
     async function postTweet() {
       input = document.getElementById('description').value;
       author = currentUser;
@@ -102,13 +82,12 @@
       let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
       let date = new Date(Date.now());
      
-      
       let tweet = {
         description : input,
         author : author,
         date :  date.toLocaleDateString("en-SE", options), 
-
       };
+
       await fetch("http://localhost:8000/tweet/", {
         method: 'POST',
         headers: {"Content-Type": "application/json"},
@@ -118,7 +97,7 @@
       getTweet();
     };
 
-
+    /* skapar en put req (edit req) */
     function putPost(id) {
       editTweetText = document.getElementById(id).innerText;
       console.log(editTweetText)
@@ -140,22 +119,21 @@
     /* tar bort inlägg och gör en reload på sidan för att uppdatera output */
     function deleteTweet(id) {
       var urlencoded = new URLSearchParams();
-
       var requestOptions = {
         method: 'DELETE',
         body: urlencoded,
         redirect: 'follow'
       };
-
       fetch(`http://localhost:8000/tweet/${id}`, requestOptions)
-        .then(response => response.text())
+        .then(res => res.json())
         .then(result => console.log("Tweet med id " + id + " togs bort!"))
         .catch(error => console.log('error', error));
         setTimeout(() => {
           location.reload(); 
         }, 500);
       };
-    
+
+    /* aktiverar våran getTweet funktion */
     getTweet();
     let currentUser = "<?php echo $firstName ?>";
   </script>
