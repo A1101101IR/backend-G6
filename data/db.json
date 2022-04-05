@@ -60,13 +60,5 @@
       "date": "Tuesday, 5 April 2022, 11:29",
       "id": 16
     }
-  ],
-  "user": [
-    {
-      "id": 1,
-      "username": "Amir",
-      "password": "blablabla",
-      "userId": "1"
-    }
   ]
 }
