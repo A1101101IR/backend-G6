@@ -12,11 +12,12 @@ Author: Amir Nabizadeh, Angelica Löfland, Filip Cepraga.
   margin: 0;
 }
 body {
-  background-color: #06d6a0;
+  background-color: #012e40;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-family: "Roboto", sans-serif;
 }
 
 .logo {
@@ -25,16 +26,15 @@ body {
 }
 
 .header-name {
-  color: black;
-  margin-top: 2%;
+  color: white;
+  margin-top: 20px;
   font-family: "Roboto", sans-serif;
   font-size: 45px;
 }
 
 .main-content-container {
   width: 80vw;
-  height: 100vh;
-  background-color: white;
+  max-width: 1280px;
   margin-top: 2%;
   border-radius: 10px;
   display: flex;
@@ -45,29 +45,46 @@ body {
 
 /* Contains textarea for tweet + buttons to select user + button to send */
 .text-area-container {
-  border: 1px solid black;
   width: 80%;
   height: fit-content;
   margin: 2%;
   padding: 10px;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .currentUserText {
   font-size: 1.5rem;
-  font-weight: bold;
+  font-weight: 400;
   text-align: center;
   padding-bottom: 10px;
+  align-self: flex-start;
+  color: white;
+  padding-left: 10px;
 }
 
 #description {
-  width: 100%;
+  width: 98%;
+  border: 1px solid black;
+  border-radius: 15px;
+  padding: 10px;
 }
 
-.chirp {
-  margin: 0 auto;
+.tweet-btn {
+  padding: 5px 25px 5px 25px;
+  border-radius: 5px;
+  border: none;
+  background-color: #0086ff;
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  align-self: flex-end;
+  margin-top: 10px;
 }
-
+.tweet-btn:hover {
+  /* box-shadow: 0px 5px 5px 1px #000; */
+  background-color: #003aff;
+}
 .user-select-container {
   width: 100px;
   height: 25px;
@@ -96,46 +113,28 @@ body {
   margin-top: 10px;
 }
 
-.tweet-btn {
-  /*width: 100%;
-  height: 100%;*/
-  padding: 5px 10px 5px 10px;
-  border-radius: 5px;
-  border: none;
-  background-color: #297561;
-  color: rgb(255, 255, 255);
-  font-size: 20px;
-  display: block;
-}
-
-.tweet-btn:hover {
-  background-color: #25cda0;
-}
-
 /* SECTION FOR TWEETED CONTENT */
 .tweets-container {
-  border: 1px solid black;
   width: 79%;
   height: 80%;
   padding: 20px;
   border-radius: 10px;
   margin-bottom: 2%;
-  overflow-x: hidden;
-  overflow-y: auto;
 }
 
 /* Tweet card - container for tweets */
 .tweet-card-container {
   position: relative;
-  border: 2px solid rgb(0, 0, 0);
   width: 100%;
-  /* max-height: 20%; */
   min-height: 20%;
   display: flex;
   flex-grow: 1;
   justify-content: center;
   margin-bottom: 10px;
   border: none;
+  background-color: #fafafa;
+  border-radius: 15px;
+  padding: 25px 0px;
 }
 .avatar {
   height: 100px;
@@ -144,9 +143,25 @@ body {
   background-size: contain;
   border-radius: 100%;
   background-color: rgb(133, 243, 127);
-  margin: auto;
 }
-
+.Angelica {
+  background-image: url("./assets/avatar.png");
+  background-size: cover;
+  background-position: center center;
+  border-radius: 100%;
+}
+.Amir {
+  background-image: url("./assets/amir.jpg");
+  background-size: cover;
+  background-position: center center;
+  border-radius: 100%;
+}
+.Filip {
+  background-image: url("./assets/avatar.png");
+  background-size: cover;
+  background-position: center center;
+  border-radius: 100%;
+}
 .avatar img {
   height: 100px;
   width: 100px;
@@ -157,23 +172,16 @@ body {
 
 .postInfo {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: space-around;
-  width: 150px;
-  height: 100px;
-  background-color: rgb(0, 225, 255);
-  margin: 5px;
-  border-radius: 5px;
-  text-align: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  opacity: 80%;
+  font-weight: 600;
 }
 
 .tweet-text {
-  text-align: center;
   align-items: center;
   width: calc(100% - 200px);
-  background-color: #06d69e63;
-  overflow: auto;
   padding: 8px;
   margin: 5px;
   border: none;
@@ -187,10 +195,12 @@ body {
 
 .btn-container-post {
   display: flex;
-  flex-direction: column-reverse;
-  width: 100px;
-  height: 100%;
-  text-align: center;
+  justify-content: space-between;
+}
+.btn-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn-container-post button {
@@ -199,7 +209,7 @@ body {
 }
 
 .btn-in-post {
-  background-color: #297561;
+  background-color: #0086ff;
   border-radius: 5px;
   border: none;
   color: white;
@@ -210,7 +220,7 @@ body {
 }
 
 .btn-in-post:hover {
-  background-color: #25cda0;
+  background-color: #003aff;
 }
 
 .btn-tweet {
@@ -229,3 +239,15 @@ body {
 }
 
 /* this is a test */
+
+.trash-img {
+  max-width: 30px;
+}
+
+footer {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}

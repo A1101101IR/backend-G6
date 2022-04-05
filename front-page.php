@@ -3,9 +3,8 @@
 <section>
   <div class="main-content-container">
     <div class="text-area-container">
-      <div>
-        <!-- Vi hämtar user id, sedan hämtar userdata, hämtar user firstName -->
-        <p class="currentUserText">
+      <!-- Vi hämtar user id, sedan hämtar userdata, hämtar user firstName -->
+      <p class="currentUserText">
         <?php
         $user = get_current_user_id();
         $userdata = get_userdata($user);
@@ -15,8 +14,8 @@
         </p>
         <!-- Textarea för att skicka data vid post req. -->
         <textarea name="description" id="description" maxlength="240" rows="8" cols="80"></textarea>
-        <button onClick="postTweet()" class="tweet-btn chirp">Chrip it/Post</button>
-      </div>
+        <button onClick="postTweet()" class="tweet-btn">Post</button>
+        
     </div>
     <!-- container för tweets som fylls på när man besöker sidan. -->
     <div class="tweets-container">
@@ -41,28 +40,33 @@
       let output = "";
       let myBtn = "";
       if (myData) {
-        myData.map((post) => {
+        myData.reverse().map((post) => {
           btn = `
-          <div>
-          <button class='btn-in-post edit' onClick='putPost(${post.id})'>Edit</button>
-          <button class='btn-tweet delete' onClick='deleteTweet(${post.id})'>Delete</button>
-          <button class='btn-in-post edit' onClick='updatePost(${post.id})'>Update</button>
+          <div class="btn-container-post">
+            <div></div>
+            <div class="btn-div">
+            <button class='btn-in-post edit' onClick='putPost(${post.id})'>Edit</button>
+            <button class='btn-in-post edit' onClick='updatePost(${post.id})'>Update</button>
+            <img onClick='deleteTweet(${post.id})' src="https://www.iconpacks.net/icons/1/free-trash-icon-347-thumb.png" alt="trash" class="trash-img">
+            </div>
           </div>`
           if (currentUser == post.author) { myBtn = btn } else { myBtn = ""}
           output += `<div class="tweet-card-container" key={post.id}>  
-              <div class="avatar">
-                <img src="https://t1.gstatic.com/licensed-image?q=tbn:ANd9GcT0BTHYsJqrUEhxjVReplkbGQlNLDzaFfKwIDXf_aiY4isJBd-3_fLVYpIWNi6r7P604hS3DRwAoyf_jnPhpAs" alt="">
+              <div class="avatar ${post.author}">
+                
               </div>
-              <div class="postInfo">
-              <p>${post.author}</p>
-              <p>${post.date}</p>
-              </div> 
+              
               <div class="tweet-text" id=${post.id}  >
+                <div class="postInfo">
+                  <p>@${post.author}</p>
+                  <p>${post.date}</p>
+                </div> 
                 ${post.description}
-              </div>
-              <div class="btn-container-post">
+                <div>
                 ${myBtn}
+                </div>
               </div>
+              
           </div>`
         })
       }
