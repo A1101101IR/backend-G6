@@ -38,11 +38,13 @@ header {
   border: none;
   font-size: 16px;
 }
-.signInDiv button {
+
+.big-btns {
   padding: 5px 25px 5px 25px;
   border-radius: 5px;
   border: none;
   background-color: #0086ff;
+  box-shadow: 10px 15px 16px 0px rgba(255, 255, 255, 0.27) inset;
   color: rgb(255, 255, 255);
   font-size: 16px;
   align-self: flex-end;
@@ -66,26 +68,6 @@ header {
   font-size: 24px;
 }
 
-/* .nav-cont,
-.nav-input,
-.nav-logo {
-  background-color: #012e40;
-  border: 1px solid white;
-  width: 33.3%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
-
-.header-name {
-  display: none;
-}
-
-.user-name {
-  color: white;
-  font-weight: bold;
-}
-
 /* Navbar END */
 
 .login-header {
@@ -104,18 +86,6 @@ header {
 .submit-body {
   display: flex;
   flex-direction: column;
-}
-.logo {
-  /* Det ser mycket snyggar om man tar bort logo tycker jag! */
-  display: none;
-  text-decoration: none;
-}
-
-.header-name {
-  color: white;
-  margin: 20px;
-  font-family: "Roboto", sans-serif;
-  font-size: 45px;
 }
 
 .main-content-container {
@@ -151,53 +121,10 @@ header {
   border-radius: 10px;
 }
 
-.tweet-btn {
-  padding: 5px 25px 5px 25px;
-  border-radius: 5px;
-  border: none;
-  background-color: #0086ff;
-  color: rgb(255, 255, 255);
-  font-size: 20px;
-  align-self: flex-end;
-  margin: 10px 0px;
-  cursor: pointer;
-}
-.tweet-btn:hover {
-  background-color: #003aff;
-}
-.user-select-container {
-  width: 100px;
-  height: 25px;
-  margin-bottom: 15px;
-}
-
-/* dropdown menu for selecting user */
-.user-dropdown {
-  width: 100%;
-  height: 100%;
-  border-radius: 5px;
-}
-
-/* input area for posting tweet/post */
-#tweet {
-  width: 100%;
-  border-radius: 5px;
-  font-size: 1.5rem;
-}
-
-.btn-container {
-  width: 100px;
-  height: 25px;
-  border-radius: 5px;
-  /* margin top set to 10, total is 15px */
-  margin-top: 10px;
-}
-
 /* SECTION FOR TWEETED CONTENT */
 .tweets-container {
   width: 100%;
   height: 80%;
-
   border-radius: 10px;
   margin-bottom: 2%;
 }
@@ -220,18 +147,9 @@ header {
   }
 }
 .avatar {
-  height: 60px;
-  width: 60px;
-  background-image: url("./assets/avatar.png");
-  background-size: contain;
-  border-radius: 100%;
+  min-height: 60px;
+  min-width: 60px;
   background-color: rgb(133, 243, 127);
-}
-@media (max-width: 500px) {
-  .avatar {
-    height: 60px;
-    width: 60px;
-  }
 }
 .Angelica {
   background-image: url("./assets/avatar.png");
@@ -251,13 +169,12 @@ header {
   background-position: center center;
   border-radius: 100%;
 }
-.avatar img {
+/* .avatar img {
   height: 100px;
   width: 100px;
   object-fit: cover;
   border-radius: 5px;
-  /* margin-top: 5px; */
-}
+} */
 
 .postInfo {
   display: flex;
@@ -271,7 +188,7 @@ header {
 .tweet-text-div {
   align-items: center;
   width: 100%;
-  margin: 10px;
+  margin: 0px 10px;
   border: none;
   border-radius: 5px;
 }
@@ -296,12 +213,7 @@ header {
   justify-content: center;
 }
 
-.btn-container-post button {
-  /*background-color: red;*/
-  height: fit-content;
-}
-
-.btn-in-post {
+button {
   background-color: #0086ff;
   border-radius: 5px;
   border: none;
@@ -312,27 +224,6 @@ header {
   padding: 5px;
   cursor: pointer;
 }
-
-.btn-in-post:hover {
-  background-color: #003aff;
-}
-
-.btn-tweet {
-  background-color: #297561;
-  border-radius: 5px;
-  border: none;
-  min-width: 58.38px;
-  color: white;
-  font-size: 15px;
-  margin: 5px;
-  padding: 5px;
-}
-
-.btn-tweet:hover {
-  background-color: #25cda0;
-}
-
-/* this is a test */
 
 .trash-img {
   max-width: 30px;
@@ -357,3 +248,118 @@ footer {
   border-radius: 5px;
   border: 1px solid white;
 }
+
+#updateBtn {
+  display: none;
+}
+
+/* .nav-cont,
+.nav-input,
+.nav-logo {
+  background-color: #012e40;
+  border: 1px solid white;
+  width: 33.3%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+/* .header-name {
+  display: none;
+}
+.user-name {
+  color: white;
+  font-weight: bold;
+}
+ */
+
+/* .logo {
+  display: none;
+  text-decoration: none;
+} */
+
+/* .header-name {
+  color: white;
+  margin: 20px;
+  font-family: "Roboto", sans-serif;
+  font-size: 45px;
+} */
+
+/* .tweet-btn {
+  padding: 5px 25px 5px 25px;
+  border-radius: 5px;
+  border: none;
+  background-color: #0086ff;
+  box-shadow: 0px 10px 8px 0px rgba(255, 255, 255, 0.47) inset;
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  align-self: flex-end;
+  margin: 10px 0px;
+  cursor: pointer;
+} */
+/* .tweet-btn:hover {
+  background-color: #003aff;
+} */
+/* .user-select-container {
+  width: 100px;
+  height: 25px;
+  margin-bottom: 15px;
+} */
+
+/* dropdown menu for selecting user */
+/* .user-dropdown {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+} */
+
+/* input area for posting tweet/post */
+/* #tweet {
+  width: 100%;
+  border-radius: 5px;
+  font-size: 1.5rem;
+} */
+
+/* .btn-container {
+  width: 100px;
+  height: 25px;
+  border-radius: 5px;
+  margin-top: 10px;
+} */
+
+/* .btn-container-post button {
+  height: fit-content;
+} */
+
+/* .btn-in-post {
+  background-color: #0086ff;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  font-size: 15px;
+  min-width: 58.38px;
+  margin: 5px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.btn-in-post:hover {
+  background-color: #003aff;
+} */
+
+/* .btn-tweet {
+  background-color: #297561;
+  border-radius: 5px;
+  border: none;
+  min-width: 58.38px;
+  color: white;
+  font-size: 15px;
+  margin: 5px;
+  padding: 5px;
+}
+
+.btn-tweet:hover {
+  background-color: #25cda0;
+} */
+
+/* this is a test */

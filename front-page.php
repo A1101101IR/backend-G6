@@ -10,7 +10,7 @@
         <div class="submit-body">
             <!-- Textarea för att skicka data vid post req. -->
             <textarea name="description" id="description" maxlength="240" rows="8" cols="80"></textarea>
-            <button onClick="postTweet()" class="tweet-btn">Post</button>
+            <button onClick="postTweet()" class="big-btns">Post</button>
         </div>
     </div>
 
@@ -31,20 +31,23 @@
       let tweetData = await fetchedData.json();
       let newTweet = "";
       let FeaturesBtn = "";
+      
+      const editFeature = "<button class='btn-in-post edit' onClick='putPost(${tweet.id})'>Edit</button>";
+      const updateFeature = "<button class='btn-in-post edit' onClick='updatePost(${tweet.id})'>Update</button>";
       if (tweetData) {
         tweetData.reverse().map((tweet) => {
           features = `
           <div class="btn-container-post">
             <div></div>
             <div class="btn-div">
-            <button class='btn-in-post edit' onClick='putPost(${tweet.id})'>Edit</button>
-            <button class='btn-in-post edit' onClick='updatePost(${tweet.id})'>Update</button>
+            <button class='btn-in-post edit' id='editBtn' onClick='putPost(${tweet.id})'>Edit</button>
+            <button class='btn-in-post edit' id='updateBtn' onClick='updatePost(${tweet.id})'>Update</button>
             <img onClick='deleteTweet(${tweet.id})' src="https://www.iconpacks.net/icons/1/free-trash-icon-347-thumb.png" alt="trash" class="trash-img">
             </div>
           </div>`
           if (currentUser == tweet.author) { FeaturesBtn = features } else { FeaturesBtn = ""}
           newTweet += `<div class="tweet-card-container" key={post.id}>  
-              <div class="avatar ${tweet.author}"></div>
+              <span class="avatar ${tweet.author}"></span>
               <div class="tweet-text-div">
                 <div class="postInfo">
                   <p>@${tweet.author}</p>
@@ -67,7 +70,7 @@
     let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
     let date = new Date(Date.now());
     
-
+    
 
 
 
@@ -94,13 +97,14 @@
         body: JSON.stringify(tweet),
         redirect: 'follow'
       })
+      document.getElementById('description').value = '';
       getTweet();
     };
 
 
 
 
-    
+
     function putPost(id) {
       /* editTweetText = document.getElementById(id).innerText;
       console.log(editTweetText); */
@@ -110,9 +114,10 @@
       editTweet = document.getElementById(id);
       editTweet.setAttribute("contenteditable", "true");
       editTweet.setAttribute("class", "editable");
-
-      /* hittar edit knappen och sätter en  */
-
+      editBtn = document.getElementById('editBtn');
+      editBtn.setAttribute("style", "display:none");
+      updateBtn = document.getElementById('updateBtn');
+      updateBtn.setAttribute("style", "display:block");
     }
     
 
@@ -173,7 +178,7 @@
     let signInInput = `
     <div class="signInDiv">
     <input type="text" class="field" placeholder="Enter your username">
-    </input><button onClick='SignIn()'>Sign in</button> </div>`;
+    </input><button class="big-btns" onClick='SignIn()'>Sign in</button> </div>`;
 
     let WordpressUser = "<?php echo $firstName ?>"
     let localUser = localStorage.getItem('user')
@@ -195,10 +200,6 @@
     let currentUserOutput = ` ${currentUser}<div></div>`
     document.getElementById('username').innerHTML = currentUserOutput;
     
-    
-
-    
-
     getTweet();
   </script>
 </section>
