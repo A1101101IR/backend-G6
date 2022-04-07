@@ -169,32 +169,30 @@
 
 
 
-    /* kollar om det finns någon användare sparad i localStorage */
-    /* Om det finns en, localUser är lika med namnet */
-    /* Om det finns inte, LocalUser är lika med signInInput där användaren kan slå in sitt namn. */
-    let localUser = "";
+
     let signInInput = `
     <div class="signInDiv">
     <input type="text" class="field" placeholder="Enter your username">
     </input><button onClick='SignIn()'>Sign in</button> </div>`;
-    if (localStorage.getItem('user')) { localUser = localStorage.getItem('user') } else { localUser = signInInput } 
 
-
-
-
-    /* Kollar om det finns ett WordpressUser som är inloggad */
-    /* Om ja, currentUser är lika med WordpressUser */
-    /* Om inte, currentUser är lika med LocalUser */
-    let currentUser = "";
     let WordpressUser = "<?php echo $firstName ?>"
-    let currentUserOutput = ""; 
-    if (WordpressUser) {currentUser = WordpressUser} else {currentUser = localUser};
+    let localUser = localStorage.getItem('user')
 
 
+    /* If there is any WordpressUser, currentUser = WordpressUser */
+    /* else if there is any localUser, currentUser = WordpressUser */
+    /* else currentUser = signInInput */
+    if (WordpressUser) {
+      currentUser = WordpressUser
+    } else if (localUser) {
+      currentUser = localUser
+    } else { 
+      currentUser = signInInput 
+    };
 
 
     /* skriver ut currentUser i vår FrontEnd */
-    currentUserOutput += `${currentUser}<div></div>`
+    let currentUserOutput = ` ${currentUser}<div></div>`
     document.getElementById('username').innerHTML = currentUserOutput;
     
     
