@@ -5,11 +5,12 @@ Author: Amir Nabizadeh, Angelica Löfland, Filip Cepraga.
 
 /* Removed standard padding & margin */
 
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto:wght@400;500&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto:wght@400;500&display=swap');
 
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 body {
   background-color: #012e40;
@@ -17,8 +18,40 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
+
+/* Navbar */
+.nav-container {
+  display: flex;
+  height: 60px;
+  width: 100vw;
+  background-color: #012e40;
+  border-bottom: 1px solid white;
+}
+
+.nav-cont,
+.nav-input,
+.nav-logo {
+  background-color: #012e40;
+  border: 1px solid white;
+  width: 33.3%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-name {
+  display: none;
+}
+
+.user-name {
+  color: white;
+  font-weight: bold;
+}
+
+/* Navbar END */
+
 .login-header {
   display: flex;
   justify-content: space-between;
@@ -27,7 +60,7 @@ body {
 .login-avatar {
   height: 40px;
   width: 40px;
-  background-image: url("./assets/avatar.png");
+  background-image: url('./assets/avatar.png');
   background-size: contain;
   border-radius: 100%;
   background-color: rgb(133, 243, 127);
@@ -45,7 +78,7 @@ body {
 .header-name {
   color: white;
   margin: 20px;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 45px;
 }
 
@@ -94,6 +127,7 @@ body {
   font-size: 20px;
   align-self: flex-end;
   margin-top: 10px;
+  cursor: pointer;
 }
 .tweet-btn:hover {
   /* box-shadow: 0px 5px 5px 1px #000; */
@@ -156,7 +190,7 @@ body {
 .avatar {
   height: 60px;
   width: 60px;
-  background-image: url("./assets/avatar.png");
+  background-image: url('./assets/avatar.png');
   background-size: contain;
   border-radius: 100%;
   background-color: rgb(133, 243, 127);
@@ -168,19 +202,19 @@ body {
   }
 }
 .Angelica {
-  background-image: url("./assets/avatar.png");
+  background-image: url('./assets/avatar.png');
   background-size: cover;
   background-position: center center;
   border-radius: 100%;
 }
 .Amir {
-  background-image: url("./assets/amir.jpg");
+  background-image: url('./assets/amir.jpg');
   background-size: cover;
   background-position: center center;
   border-radius: 100%;
 }
 .Filip {
-  background-image: url("./assets/avatar.png");
+  background-image: url('./assets/avatar.png');
   background-size: cover;
   background-position: center center;
   border-radius: 100%;
@@ -244,6 +278,7 @@ body {
   min-width: 58.38px;
   margin: 5px;
   padding: 5px;
+  cursor: pointer;
 }
 
 .btn-in-post:hover {
@@ -269,6 +304,7 @@ body {
 
 .trash-img {
   max-width: 30px;
+  cursor: pointer;
 }
 
 footer {

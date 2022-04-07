@@ -7,12 +7,6 @@
       "date": "Monday, April 3, 2022, 11:32"
     },
     {
-      "description": "It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised inIt has survived not only five centuries, but also the leap into electronic typesetting, remaining ",
-      "id": 8,
-      "author": "Filip",
-      "date": "Monday, April 4, 2022, 13:54"
-    },
-    {
       "description": "g Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editorffghg Lorem Ipsum is th ",
       "id": 9,
       "author": "Angelica",
@@ -49,10 +43,16 @@
       "id": 16
     },
     {
-      "description": "Test\n\n",
-      "author": "Amir",
-      "date": "Thursday, 7 April 2022, 13:36",
-      "id": 19
+      "description": "I always take life with a grain of salt. And a slice of lemon. And a shot of tequila. Edit: Remember to get more tequila!",
+      "author": "Filip",
+      "date": "Was updated at Thursday, 7 April 2022, 13:58",
+      "id": 17
+    },
+    {
+      "description": "Some people say I'm too vague...\n\nBut you know how the saying goes :)",
+      "author": "Filip",
+      "date": "Wednesday, 6 April 2022, 08:19",
+      "id": 18
     }
   ]
 }

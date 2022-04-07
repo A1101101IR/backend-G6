@@ -4,16 +4,16 @@
     <!-- Vi hämtar user id, sedan hämtar userdata, hämtar user firstName -->
     <div class="text-area-container">
       <div class="login-header">
-          <span class="currentUserText">
-            <?php echo $firstName ?>
+          <span id="username" class="currentUserText">
           </span>
-          <div class="login-avatar"></div>
+          <!-- <div class="login-avatar"></div> -->
       </div>
         <div class="submit-body">
             <!-- Textarea för att skicka data vid post req. -->
             <textarea name="description" id="description" maxlength="240" rows="8" cols="80"></textarea>
             <button onClick="postTweet()" class="tweet-btn">Post</button>
         </div>
+        
     </div>
     <!-- container för tweets som fylls på när man besöker sidan. -->
     <div class="tweets-container">
@@ -139,8 +139,20 @@
     getTweet();
     let thisUser = "";
     let currentUser = "<?php echo $firstName ?>";
-    if (currentUser) { thisUser = currentUser } else { thisUser = "nobody"}
-    console.log(thisUser);
+    
+
+    function test() {
+      /* Changes displayName on navbar */
+      const userDisplay = document.querySelector('.user-name');
+      userDisplay.innerText = currentUser;
+      myInput = `<input type="text"></input>`;
+      if (currentUser) { thisUser = currentUser } else { thisUser = myInput}
+      console.log(thisUser);
+      output = "";
+      output += `<h1>${thisUser}</h1>`
+      document.getElementById('username').innerHTML = output;
+      if (currentUser) { visa = user} else { visa input}
+    }
   </script>
 </section>
 
