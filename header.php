@@ -6,16 +6,18 @@
 <body
 <?php body_class(); ?>>
 <header>
-  <nav class="nav-container">
+  <nav class="nav-container" id="username">
     <!-- <div class="nav-cont"><p class="user-name">USER</p></div>
     <div class="nav-input login-header">
       <span id="username" class="currentUserText"><div class="login-avatar"></div></span>
     </div>
     <div class="nav-logo"></div> -->
-    <div class="nav-input login-header">
-      <span id="username" class="currentUserText"><div class="login-avatar"></div></span>
-    </div>
+    <!-- <div class="nav-input login-header">
+      
+    </div> -->
+    <!-- <div id="username" class="currentUserText"></div> -->
+    <!-- <span class="login-avatar"></span> -->
   </nav>
-  <a class="logo" href="/"><h1 class="header-name"><?php echo get_bloginfo( 'name' ); ?></h1></a>
+  
 </header>
 

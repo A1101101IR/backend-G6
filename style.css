@@ -5,7 +5,7 @@ Author: Amir Nabizadeh, Angelica Löfland, Filip Cepraga.
 
 /* Removed standard padding & margin */
 
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto:wght@400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto:wght@400;500&display=swap");
 
 * {
   padding: 0;
@@ -18,19 +18,55 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
+}
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.signInDiv {
+  height: auto;
+  display: flex;
+  align-items: center;
+}
+.field {
+  height: 40px;
+  border-radius: 6px;
+  padding: 0px 10px;
+  border: none;
+  font-size: 16px;
+}
+.signInDiv button {
+  padding: 5px 25px 5px 25px;
+  border-radius: 5px;
+  border: none;
+  background-color: #0086ff;
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+  align-self: flex-end;
+  margin-left: 10px;
+  height: 40px;
+  cursor: pointer;
 }
 
 /* Navbar */
 .nav-container {
   display: flex;
-  height: 60px;
-  width: 100vw;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  margin: 0px 20px;
+  max-width: 800px;
+  width: 100%;
   background-color: #012e40;
   border-bottom: 1px solid white;
+  color: white;
+  font-size: 24px;
 }
 
-.nav-cont,
+/* .nav-cont,
 .nav-input,
 .nav-logo {
   background-color: #012e40;
@@ -39,7 +75,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 
 .header-name {
   display: none;
@@ -60,7 +96,7 @@ body {
 .login-avatar {
   height: 40px;
   width: 40px;
-  background-image: url('./assets/avatar.png');
+  background-image: url("./assets/avatar.png");
   background-size: contain;
   border-radius: 100%;
   background-color: rgb(133, 243, 127);
@@ -78,7 +114,7 @@ body {
 .header-name {
   color: white;
   margin: 20px;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 45px;
 }
 
@@ -89,15 +125,13 @@ body {
   flex-direction: column;
   justify-content: center;
   border-radius: 10px;
-  padding-left: 20px;
-  padding-right: 20px;
+  margin: 0px 20px;
 }
 
 /* Contains textarea for tweet + buttons to select user + button to send */
 .text-area-container {
   width: 100%;
   height: fit-content;
-  padding: 10px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -109,7 +143,6 @@ body {
   text-align: center;
   align-self: center;
   color: white;
-  padding-left: 10px;
 }
 
 #description {
@@ -126,11 +159,10 @@ body {
   color: rgb(255, 255, 255);
   font-size: 20px;
   align-self: flex-end;
-  margin-top: 10px;
+  margin: 10px 0px;
   cursor: pointer;
 }
 .tweet-btn:hover {
-  /* box-shadow: 0px 5px 5px 1px #000; */
   background-color: #003aff;
 }
 .user-select-container {
@@ -165,7 +197,7 @@ body {
 .tweets-container {
   width: 100%;
   height: 80%;
-  padding: 20px;
+
   border-radius: 10px;
   margin-bottom: 2%;
 }
@@ -190,7 +222,7 @@ body {
 .avatar {
   height: 60px;
   width: 60px;
-  background-image: url('./assets/avatar.png');
+  background-image: url("./assets/avatar.png");
   background-size: contain;
   border-radius: 100%;
   background-color: rgb(133, 243, 127);
@@ -202,19 +234,19 @@ body {
   }
 }
 .Angelica {
-  background-image: url('./assets/avatar.png');
+  background-image: url("./assets/avatar.png");
   background-size: cover;
   background-position: center center;
   border-radius: 100%;
 }
 .Amir {
-  background-image: url('./assets/amir.jpg');
+  background-image: url("./assets/amir.jpg");
   background-size: cover;
   background-position: center center;
   border-radius: 100%;
 }
 .Filip {
-  background-image: url('./assets/avatar.png');
+  background-image: url("./assets/avatar.png");
   background-size: cover;
   background-position: center center;
   border-radius: 100%;
@@ -316,4 +348,12 @@ footer {
 }
 .tweet-card-container:hover .btn-in-post {
   /* vore nice om vi kunde ha bara en btn som när man går med mouse over den, tre icon delete, edit och update knapp kommer ur den.  */
+}
+
+.editable {
+  background-color: #012e40;
+  height: 80px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid white;
 }

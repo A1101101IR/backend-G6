@@ -24,61 +24,67 @@
   <script>
     /* Hämtar data coh skapa inlägg av data */
     async function getTweet() {
-      var requestOptions = {
+      let fetchedData = await fetch("http://localhost:8000/tweet", {
         method: 'GET',
         redirect: 'follow'
-      };
-      let postData = await fetch("http://localhost:8000/tweet", requestOptions);
-      let myData = await postData.json();
-      let output = "";
-      let myBtn = "";
-      if (myData) {
-        myData.reverse().map((post) => {
-          btn = `
+      });
+      let tweetData = await fetchedData.json();
+      let newTweet = "";
+      let FeaturesBtn = "";
+      if (tweetData) {
+        tweetData.reverse().map((tweet) => {
+          features = `
           <div class="btn-container-post">
             <div></div>
             <div class="btn-div">
-            <button class='btn-in-post edit' onClick='putPost(${post.id})'>Edit</button>
-            <button class='btn-in-post edit' onClick='updatePost(${post.id})'>Update</button>
-            <img onClick='deleteTweet(${post.id})' src="https://www.iconpacks.net/icons/1/free-trash-icon-347-thumb.png" alt="trash" class="trash-img">
+            <button class='btn-in-post edit' onClick='putPost(${tweet.id})'>Edit</button>
+            <button class='btn-in-post edit' onClick='updatePost(${tweet.id})'>Update</button>
+            <img onClick='deleteTweet(${tweet.id})' src="https://www.iconpacks.net/icons/1/free-trash-icon-347-thumb.png" alt="trash" class="trash-img">
             </div>
           </div>`
-          if (currentUser == post.author) { myBtn = btn } else { myBtn = ""}
-          output += `<div class="tweet-card-container" key={post.id}>  
-              <div class="avatar ${post.author}"></div>
+          if (currentUser == tweet.author) { FeaturesBtn = features } else { FeaturesBtn = ""}
+          newTweet += `<div class="tweet-card-container" key={post.id}>  
+              <div class="avatar ${tweet.author}"></div>
               <div class="tweet-text-div">
                 <div class="postInfo">
-                  <p>@${post.author}</p>
-                  <p>${post.date}</p>
+                  <p>@${tweet.author}</p>
+                  <p>${tweet.date}</p>
                 </div>
-                <div class="tweet-text" id=${post.id}>${post.description}</div>
+                <div class="tweet-text" id=${tweet.id}>${tweet.description}</div>
                 <div>
-                ${myBtn}
+                ${FeaturesBtn}
                 </div>
               </div>
           </div>`
         })
       }
-      document.getElementById('post').innerHTML = output;
+      document.getElementById('post').innerHTML = newTweet;
     }
 
+
+
+    /* genererar den aktuella datum och tid som i inställd i användarens dator. */
     let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
     let date = new Date(Date.now());
     
+
+
+
+
     /* Skapar nya inlägg och skickar till databasen */
     async function postTweet() {
-      input = document.getElementById('description').value;
+      description = document.getElementById('description').value;
       author = currentUser;
       if (currentUser == signInInput) {
         alert('Entre a username');
         return; 
       }
-      if(input.length == 0) {
+      if(description.length == 0) {
         alert('You cannot post an empty tweet!');
         return; 
       }
       let tweet = {
-        description : input,
+        description : description,
         author : author,
         date :  date.toLocaleDateString("en-SE", options), 
       };
@@ -91,14 +97,29 @@
       getTweet();
     };
 
+
+
+
     
     function putPost(id) {
-      editTweetText = document.getElementById(id).innerText;
+      /* editTweetText = document.getElementById(id).innerText;
+      console.log(editTweetText); */
+
+
+      /* hittar element som vi vill redigera och sätter två attrebiut i de */
       editTweet = document.getElementById(id);
       editTweet.setAttribute("contenteditable", "true");
+      editTweet.setAttribute("class", "editable");
+
+      /* hittar edit knappen och sätter en  */
+
     }
     
-    function updatePost(id) {
+
+
+
+
+    async function updatePost(id) {
       newTweet = document.getElementById(id).innerText;
       author = currentUser;
       let tweet = {
@@ -106,14 +127,18 @@
         author : author,
         date :  "Was updated at " + date.toLocaleDateString("en-SE", options), 
       };
-      fetch(`http://localhost:8000/tweet/${id}`, {
+      await fetch(`http://localhost:8000/tweet/${id}`, {
         method: 'PUT',
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(tweet),
         redirect: 'follow'
       })
-      getTweet();
+      window.location.reload();
     }
+
+
+
+
 
     /* tar bort inlägg och gör en reload på sidan för att uppdatera output */
     function deleteTweet(id) {
@@ -135,32 +160,47 @@
     
     
     /* function för SignIn */
-
-    let currentUser = "";
-    let WordpressUser = "<?php echo $firstName ?>"
-
-    let signInInput = `
-    <div>
-    <input type="text" class="field" placeholder="Enter your username">
-    </input><button onClick='SignIn()'>Sign in</button> </div>`;
-
-    
-    let localUser = "";
-    if (localStorage.getItem('user')) { localUser = localStorage.getItem('user') } else { localUser = signInInput } 
-    
-    let currentUserOutput = ""; 
-    if (WordpressUser) {currentUser = WordpressUser} else {currentUser = localUser};
-
-    currentUserOutput += `<h1>${currentUser}</h1>`
-    document.getElementById('username').innerHTML = currentUserOutput;
-
     function SignIn(){
       let input = document.querySelector('.field');
       localStorage.setItem("user", input.value);
       window.location.reload();
     }
+    
 
-    /* aktiverar våran getTweet funktion */
+
+
+    /* kollar om det finns någon användare sparad i localStorage */
+    /* Om det finns en, localUser är lika med namnet */
+    /* Om det finns inte, LocalUser är lika med signInInput där användaren kan slå in sitt namn. */
+    let localUser = "";
+    let signInInput = `
+    <div class="signInDiv">
+    <input type="text" class="field" placeholder="Enter your username">
+    </input><button onClick='SignIn()'>Sign in</button> </div>`;
+    if (localStorage.getItem('user')) { localUser = localStorage.getItem('user') } else { localUser = signInInput } 
+
+
+
+
+    /* Kollar om det finns ett WordpressUser som är inloggad */
+    /* Om ja, currentUser är lika med WordpressUser */
+    /* Om inte, currentUser är lika med LocalUser */
+    let currentUser = "";
+    let WordpressUser = "<?php echo $firstName ?>"
+    let currentUserOutput = ""; 
+    if (WordpressUser) {currentUser = WordpressUser} else {currentUser = localUser};
+
+
+
+
+    /* skriver ut currentUser i vår FrontEnd */
+    currentUserOutput += `${currentUser}<div></div>`
+    document.getElementById('username').innerHTML = currentUserOutput;
+    
+    
+
+    
+
     getTweet();
   </script>
 </section>
