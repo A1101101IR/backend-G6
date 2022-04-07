@@ -4,8 +4,7 @@
     <!-- Vi hämtar user id, sedan hämtar userdata, hämtar user firstName -->
     <div class="text-area-container">
       <div class="login-header">
-          <span id="username" class="currentUserText">
-          </span>
+          
           <!-- <div class="login-avatar"></div> -->
       </div>
         <div class="submit-body">
@@ -13,13 +12,12 @@
             <textarea name="description" id="description" maxlength="240" rows="8" cols="80"></textarea>
             <button onClick="postTweet()" class="tweet-btn">Post</button>
         </div>
-        
     </div>
+
     <!-- container för tweets som fylls på när man besöker sidan. -->
     <div class="tweets-container">
       <div id="post"></div>
     </div>
-    <!-- end content container -->
 
 
   <!-- våran script tag som innehåller samtliga funktioner. -->
@@ -71,6 +69,10 @@
     async function postTweet() {
       input = document.getElementById('description').value;
       author = currentUser;
+      if (currentUser == signInInput) {
+        alert('Entre a username');
+        return; 
+      }
       if(input.length == 0) {
         alert('You cannot post an empty tweet!');
         return; 
@@ -89,13 +91,13 @@
       getTweet();
     };
 
-    /* skapar en put req (edit req) */
+    
     function putPost(id) {
       editTweetText = document.getElementById(id).innerText;
       editTweet = document.getElementById(id);
       editTweet.setAttribute("contenteditable", "true");
     }
-
+    
     function updatePost(id) {
       newTweet = document.getElementById(id).innerText;
       author = currentUser;
@@ -112,11 +114,6 @@
       })
       getTweet();
     }
-
-
-
-
-    
 
     /* tar bort inlägg och gör en reload på sidan för att uppdatera output */
     function deleteTweet(id) {
@@ -135,24 +132,36 @@
         }, 500);
       };
 
+    
+    
+    /* function för SignIn */
+
+    let currentUser = "";
+    let WordpressUser = "<?php echo $firstName ?>"
+
+    let signInInput = `
+    <div>
+    <input type="text" class="field" placeholder="Enter your username">
+    </input><button onClick='SignIn()'>Sign in</button> </div>`;
+
+    
+    let localUser = "";
+    if (localStorage.getItem('user')) { localUser = localStorage.getItem('user') } else { localUser = signInInput } 
+    
+    let currentUserOutput = ""; 
+    if (WordpressUser) {currentUser = WordpressUser} else {currentUser = localUser};
+
+    currentUserOutput += `<h1>${currentUser}</h1>`
+    document.getElementById('username').innerHTML = currentUserOutput;
+
+    function SignIn(){
+      let input = document.querySelector('.field');
+      localStorage.setItem("user", input.value);
+      window.location.reload();
+    }
+
     /* aktiverar våran getTweet funktion */
     getTweet();
-    let thisUser = "";
-    let currentUser = "<?php echo $firstName ?>";
-    
-
-    function test() {
-      /* Changes displayName on navbar */
-      const userDisplay = document.querySelector('.user-name');
-      userDisplay.innerText = currentUser;
-      myInput = `<input type="text"></input>`;
-      if (currentUser) { thisUser = currentUser } else { thisUser = myInput}
-      console.log(thisUser);
-      output = "";
-      output += `<h1>${thisUser}</h1>`
-      document.getElementById('username').innerHTML = output;
-      if (currentUser) { visa = user} else { visa input}
-    }
   </script>
 </section>
 
