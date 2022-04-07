@@ -1,16 +1,11 @@
 <?php get_header(); ?>
-
+<?php $user = get_current_user_id(); $userdata = get_userdata($user); $firstName = $userdata->first_name; ?>
 <section class="main-content-container">
     <!-- Vi hämtar user id, sedan hämtar userdata, hämtar user firstName -->
     <div class="text-area-container">
       <div class="login-header">
           <span class="currentUserText">
-            <?php
-            $user = get_current_user_id();
-            $userdata = get_userdata($user);
-            $firstName = $userdata->first_name;
-            echo $firstName;
-            ?>
+            <?php echo $firstName ?>
           </span>
           <div class="login-avatar"></div>
       </div>
@@ -52,10 +47,8 @@
           </div>`
           if (currentUser == post.author) { myBtn = btn } else { myBtn = ""}
           output += `<div class="tweet-card-container" key={post.id}>  
-              <div class="avatar ${post.author}">
-                
-              </div>
-              <div class="tweet-text-div"   >
+              <div class="avatar ${post.author}"></div>
+              <div class="tweet-text-div">
                 <div class="postInfo">
                   <p>@${post.author}</p>
                   <p>${post.date}</p>
@@ -65,7 +58,6 @@
                 ${myBtn}
                 </div>
               </div>
-              
           </div>`
         })
       }
@@ -83,13 +75,11 @@
         alert('You cannot post an empty tweet!');
         return; 
       }
-      
       let tweet = {
         description : input,
         author : author,
         date :  date.toLocaleDateString("en-SE", options), 
       };
-
       await fetch("http://localhost:8000/tweet/", {
         method: 'POST',
         headers: {"Content-Type": "application/json"},
@@ -122,7 +112,6 @@
       })
       getTweet();
     }
-    /* TODO: send put req to databas, update post & make update btn only appear after clicking edit on specific div*/
 
 
 
@@ -153,24 +142,6 @@
     if (currentUser) { thisUser = currentUser } else { thisUser = "nobody"}
     console.log(thisUser);
   </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
 </section>
 
 
