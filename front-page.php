@@ -12,7 +12,7 @@
             echo $firstName;
             ?>
           </span>
-          <div class="login-avatar"></div>
+          <!-- <div class="login-avatar"></div> -->
       </div>
         <div class="submit-body">
             <!-- Textarea för att skicka data vid post req. -->
