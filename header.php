@@ -13,3 +13,4 @@
 </nav>
   <a class="logo" href="/"><h1 class="header-name"><?php echo get_bloginfo( 'name' ); ?></h1></a>
 </header>
+

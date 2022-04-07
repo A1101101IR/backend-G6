@@ -151,13 +151,42 @@
     let thisUser = "";
     let currentUser = "<?php echo $firstName ?>";
 
+
+
     /* Changes displayName on navbar */
-    const userDisplay = document.querySelector('.user-name');
+   let userDisplay = document.querySelector('.user-name');
     userDisplay.innerText = currentUser;
+    let userInput = `
+    <input type="text" class="field" placeholder="Enter your username"></input>
+    <button onClick='userSignIn()'>Sign in</button>
+    `
     
-    if (currentUser) { thisUser = currentUser } else { thisUser = "nobody"}
-    console.log(thisUser);
+
+
+    function userSignIn(){
+      let input = document.querySelector('.field');
+      console.log(input.value);
+      localStorage.setItem("user", input.value);
+      console.log(localStorage.getItem('user') + 'This worked');
+      if(localStorage.getItem('user') !== "") {
+      userDisplay.innerHTML = `
+      <p>${localStorage.getItem('user')}</p>
+      <button onclick="signOut()">Sign out</button>
+      `;
+    }
+    }
+ 
+
+    if (currentUser != ""){ thisUser = currentUser } else { 
+      /* thisUser = userInput; */
+      userDisplay.innerHTML = userInput;
+ 
+    }
+ 
+
+
   </script>
+
 
 
 
