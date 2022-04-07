@@ -1,30 +1,30 @@
 <?php get_header(); ?>
 
-<section>
-  <div class="main-content-container">
+<section class="main-content-container">
+    <!-- Vi hämtar user id, sedan hämtar userdata, hämtar user firstName -->
     <div class="text-area-container">
-      <!-- Vi hämtar user id, sedan hämtar userdata, hämtar user firstName -->
-      <p class="currentUserText">
-        <?php
-        $user = get_current_user_id();
-        $userdata = get_userdata($user);
-        $firstName = $userdata->first_name;
-        echo $firstName;
-        ?>
-        </p>
-        <!-- Textarea för att skicka data vid post req. -->
-        <textarea name="description" id="description" maxlength="240" rows="8" cols="80"></textarea>
-        <button onClick="postTweet()" class="tweet-btn">Post</button>
-        
+      <div class="login-header">
+          <span class="currentUserText">
+            <?php
+            $user = get_current_user_id();
+            $userdata = get_userdata($user);
+            $firstName = $userdata->first_name;
+            echo $firstName;
+            ?>
+          </span>
+          <div class="login-avatar"></div>
+      </div>
+        <div class="submit-body">
+            <!-- Textarea för att skicka data vid post req. -->
+            <textarea name="description" id="description" maxlength="240" rows="8" cols="80"></textarea>
+            <button onClick="postTweet()" class="tweet-btn">Post</button>
+        </div>
     </div>
     <!-- container för tweets som fylls på när man besöker sidan. -->
     <div class="tweets-container">
       <div id="post"></div>
     </div>
     <!-- end content container -->
-  </div>
-
-
 
 
   <!-- våran script tag som innehåller samtliga funktioner. -->
@@ -55,13 +55,12 @@
               <div class="avatar ${post.author}">
                 
               </div>
-              
-              <div class="tweet-text" id=${post.id}  >
+              <div class="tweet-text-div"   >
                 <div class="postInfo">
                   <p>@${post.author}</p>
                   <p>${post.date}</p>
-                </div> 
-                ${post.description}
+                </div>
+                <div class="tweet-text" id=${post.id}>${post.description}</div>
                 <div>
                 ${myBtn}
                 </div>
@@ -73,8 +72,9 @@
       document.getElementById('post').innerHTML = output;
     }
 
-
-
+    let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+    let date = new Date(Date.now());
+    
     /* Skapar nya inlägg och skickar till databasen */
     async function postTweet() {
       input = document.getElementById('description').value;
@@ -83,9 +83,7 @@
         alert('You cannot post an empty tweet!');
         return; 
       }
-      let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
-      let date = new Date(Date.now());
-     
+      
       let tweet = {
         description : input,
         author : author,
@@ -104,14 +102,25 @@
     /* skapar en put req (edit req) */
     function putPost(id) {
       editTweetText = document.getElementById(id).innerText;
-      console.log(editTweetText)
       editTweet = document.getElementById(id);
       editTweet.setAttribute("contenteditable", "true");
     }
 
     function updatePost(id) {
-      newTweet = document.getElementById(id).value;
-      console.log(id);
+      newTweet = document.getElementById(id).innerText;
+      author = currentUser;
+      let tweet = {
+        description : newTweet,
+        author : author,
+        date :  "Was updated at " + date.toLocaleDateString("en-SE", options), 
+      };
+      fetch(`http://localhost:8000/tweet/${id}`, {
+        method: 'PUT',
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(tweet),
+        redirect: 'follow'
+      })
+      getTweet();
     }
     /* TODO: send put req to databas, update post & make update btn only appear after clicking edit on specific div*/
 
@@ -139,12 +148,15 @@
 
     /* aktiverar våran getTweet funktion */
     getTweet();
+    let thisUser = "";
     let currentUser = "<?php echo $firstName ?>";
 
     /* Changes displayName on navbar */
     const userDisplay = document.querySelector('.user-name');
     userDisplay.innerText = currentUser;
     
+    if (currentUser) { thisUser = currentUser } else { thisUser = "nobody"}
+    console.log(thisUser);
   </script>
 
 
