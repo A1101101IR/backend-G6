@@ -140,6 +140,11 @@
     /* aktiverar våran getTweet funktion */
     getTweet();
     let currentUser = "<?php echo $firstName ?>";
+
+    /* Changes displayName on navbar */
+    const userDisplay = document.querySelector('.user-name');
+    userDisplay.innerText = currentUser;
+    
   </script>
 
 

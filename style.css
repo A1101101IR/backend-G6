@@ -10,6 +10,7 @@ Author: Amir Nabizadeh, Angelica Löfland, Filip Cepraga.
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 body {
   background-color: #012e40;
@@ -19,6 +20,37 @@ body {
   align-items: center;
   font-family: 'Roboto', sans-serif;
 }
+
+/* Navbar */
+.nav-container {
+  display: flex;
+  height: 60px;
+  width: 100vw;
+  background-color: #012e40;
+  border-bottom: 1px solid white;
+}
+
+.nav-cont,
+.nav-input,
+.nav-logo {
+  background-color: #012e40;
+  border: 1px solid white;
+  width: 33.3%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-name {
+  display: none;
+}
+
+.user-name {
+  color: white;
+  font-weight: bold;
+}
+
+/* Navbar END */
 
 .logo {
   text-decoration: none;
