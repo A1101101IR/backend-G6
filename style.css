@@ -19,35 +19,51 @@ body {
   align-items: center;
   font-family: "Roboto", sans-serif;
 }
-
+.login-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.login-avatar {
+  height: 40px;
+  width: 40px;
+  background-image: url("./assets/avatar.png");
+  background-size: contain;
+  border-radius: 100%;
+  background-color: rgb(133, 243, 127);
+}
+.submit-body {
+  display: flex;
+  flex-direction: column;
+}
 .logo {
+  /* Det ser mycket snyggar om man tar bort logo tycker jag! */
+  display: none;
   text-decoration: none;
-  margin-top: 20px;
 }
 
 .header-name {
   color: white;
-  margin-top: 20px;
+  margin: 20px;
   font-family: "Roboto", sans-serif;
   font-size: 45px;
 }
 
 .main-content-container {
-  width: 80vw;
-  max-width: 1280px;
-  margin-top: 2%;
-  border-radius: 10px;
+  max-width: 800px;
   display: flex;
+  align-items: center;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  border-radius: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 /* Contains textarea for tweet + buttons to select user + button to send */
 .text-area-container {
-  width: 80%;
+  width: 100%;
   height: fit-content;
-  margin: 2%;
   padding: 10px;
   border-radius: 10px;
   display: flex;
@@ -58,17 +74,15 @@ body {
   font-size: 1.5rem;
   font-weight: 400;
   text-align: center;
-  padding-bottom: 10px;
-  align-self: flex-start;
+  align-self: center;
   color: white;
   padding-left: 10px;
 }
 
 #description {
-  width: 98%;
   border: 1px solid black;
-  border-radius: 15px;
   padding: 10px;
+  border-radius: 10px;
 }
 
 .tweet-btn {
@@ -115,7 +129,7 @@ body {
 
 /* SECTION FOR TWEETED CONTENT */
 .tweets-container {
-  width: 79%;
+  width: 100%;
   height: 80%;
   padding: 20px;
   border-radius: 10px;
@@ -124,25 +138,34 @@ body {
 
 /* Tweet card - container for tweets */
 .tweet-card-container {
-  position: relative;
-  width: 100%;
-  min-height: 20%;
   display: flex;
-  flex-grow: 1;
-  justify-content: center;
+  padding: 25px;
   margin-bottom: 10px;
-  border: none;
-  background-color: #fafafa;
   border-radius: 15px;
-  padding: 25px 0px;
+  justify-content: center;
+  background-color: #fafafa;
+  color: white;
+  background-color: rgba(0, 255, 247, 0.1);
+}
+
+@media (max-width: 500px) {
+  .tweet-card-container {
+    padding: 15px 0px;
+  }
 }
 .avatar {
-  height: 100px;
-  width: 100px;
+  height: 60px;
+  width: 60px;
   background-image: url("./assets/avatar.png");
   background-size: contain;
   border-radius: 100%;
   background-color: rgb(133, 243, 127);
+}
+@media (max-width: 500px) {
+  .avatar {
+    height: 60px;
+    width: 60px;
+  }
 }
 .Angelica {
   background-image: url("./assets/avatar.png");
@@ -176,18 +199,22 @@ body {
   justify-content: space-between;
   margin-bottom: 10px;
   opacity: 80%;
-  font-weight: 600;
+  /* font-weight: 400; */
 }
 
-.tweet-text {
+.tweet-text-div {
   align-items: center;
-  width: calc(100% - 200px);
-  padding: 8px;
-  margin: 5px;
+  width: 100%;
+  margin: 10px;
   border: none;
   border-radius: 5px;
 }
-
+@media (max-width: 500px) {
+  .tweet-text {
+    padding: 5px;
+    border-radius: 5px;
+  }
+}
 .post {
   padding: 10px;
   border: none;
@@ -250,4 +277,7 @@ footer {
   align-items: center;
   justify-content: center;
   color: white;
+}
+.tweet-card-container:hover .btn-in-post {
+  /* vore nice om vi kunde ha bara en btn som när man går med mouse over den, tre icon delete, edit och update knapp kommer ur den.  */
 }
