@@ -3,10 +3,9 @@
 <section class="main-content-container">
     <!-- Vi hämtar user id, sedan hämtar userdata, hämtar user firstName -->
     <div class="text-area-container">
-      <div class="login-header">
-          
-          <!-- <div class="login-avatar"></div> -->
-      </div>
+        <div class="login-header">
+            <!-- <div class="login-avatar"></div> -->
+        </div>
         <div class="submit-body">
             <!-- Textarea för att skicka data vid post req. -->
             <textarea name="description" id="description" maxlength="240" rows="8" cols="80"></textarea>
@@ -31,9 +30,6 @@
       let tweetData = await fetchedData.json();
       let newTweet = "";
       let FeaturesBtn = "";
-      
-      const editFeature = "<button class='btn-in-post edit' onClick='putPost(${tweet.id})'>Edit</button>";
-      const updateFeature = "<button class='btn-in-post edit' onClick='updatePost(${tweet.id})'>Update</button>";
       if (tweetData) {
         tweetData.reverse().map((tweet) => {
           features = `
@@ -106,10 +102,6 @@
 
 
     function putPost(id) {
-      /* editTweetText = document.getElementById(id).innerText;
-      console.log(editTweetText); */
-
-
       /* hittar element som vi vill redigera och sätter två attrebiut i de */
       editTweet = document.getElementById(id);
       editTweet.setAttribute("contenteditable", "true");
@@ -164,6 +156,8 @@
 
     
     
+
+
     /* function för SignIn */
     function SignIn(){
       let input = document.querySelector('.field');
