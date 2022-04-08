@@ -4,8 +4,8 @@ A simple Twitter built with Wordpress as front-end and json-server as back-end.
 
 ### Used tools
 
-[Local](https://localwp.com/) to run wordpress locally and use it as Front-end.
-[JSON-server](https://github.com/typicode/json-server) to create a fake REST API as backend
+- [Local](https://localwp.com/) to run wordpress locally and use it as Front-end.
+- [JSON-server](https://github.com/typicode/json-server) to create a fake REST API as backend
 
 ### Run json-server
 
