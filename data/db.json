@@ -21,7 +21,7 @@
     {
       "description": "\"going to the gym to say ooooohhh big stretch at everyone like they’re a cat\"",
       "author": "Amir",
-      "date": "Tuesday, 5 April 2022, 11:24",
+      "date": "Was updated at Friday, 8 April 2022, 10:06",
       "id": 12
     },
     {
@@ -53,6 +53,18 @@
       "author": "Filip",
       "date": "Wednesday, 6 April 2022, 08:19",
       "id": 18
+    },
+    {
+      "description": "test hello",
+      "author": "Amir",
+      "date": "Was updated at Friday, 8 April 2022, 10:28",
+      "id": 19
+    },
+    {
+      "description": "Hej hellll",
+      "author": "Johan",
+      "date": "Was updated at Friday, 8 April 2022, 10:22",
+      "id": 20
     }
   ]
 }

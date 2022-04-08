@@ -114,8 +114,6 @@
     
 
 
-
-
     async function updatePost(id) {
       newTweet = document.getElementById(id).innerText;
       author = currentUser;
@@ -165,9 +163,6 @@
       window.location.reload();
     }
     
-
-
-
 
     let signInInput = `
     <div class="signInDiv">
