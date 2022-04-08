@@ -5,7 +5,7 @@ Author: Amir Nabizadeh, Angelica Löfland, Filip Cepraga.
 
 /* Removed standard padding & margin */
 
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto:wght@400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto:wght@400;500&display=swap");
 
 * {
   padding: 0;
@@ -18,7 +18,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 header {
   display: flex;
@@ -78,7 +78,7 @@ header {
 .login-avatar {
   height: 40px;
   width: 40px;
-  background-image: url('./assets/avatar.png');
+  background-image: url("./assets/avatar.png");
   background-size: contain;
   border-radius: 100%;
   background-color: rgb(133, 243, 127);
@@ -149,22 +149,26 @@ header {
 .avatar {
   height: 60px;
   width: 60px;
-  background-color: rgb(133, 243, 127);
+  /* background-color: rgb(133, 243, 127); */
+  background-image: url("./img/icons8-user-64.png");
+  background-size: cover;
+  background-position: center center;
+  border-radius: 100%;
 }
 .Angelica {
-  background-image: url('./img/linkedinprofil.jpg');
+  background-image: url("./img/linkedinprofil.jpg");
   background-size: cover;
   background-position: center center;
   border-radius: 100%;
 }
 .Amir {
-  background-image: url('./assets/amir.jpg');
+  background-image: url("./assets/amir.jpg");
   background-size: cover;
   background-position: center center;
   border-radius: 100%;
 }
 .Filip {
-  background-image: url('./assets/avatar.png');
+  background-image: url("./assets/avatar.png");
   background-size: cover;
   background-position: center center;
   border-radius: 100%;
@@ -187,7 +191,7 @@ header {
 
 .tweet-text-div {
   align-items: center;
-  width: 100%;
+  width: 90%;
   margin: 0px 10px;
   border: none;
   border-radius: 5px;

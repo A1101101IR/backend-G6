@@ -38,7 +38,7 @@
             <div class="btn-div">
             <button class='btn-in-post edit' id='editBtn' onClick='putPost(${tweet.id})'>Edit</button>
             <button class='btn-in-post edit' id='updateBtn' onClick='updatePost(${tweet.id})'>Update</button>
-            <img onClick='deleteTweet(${tweet.id})' src="https://www.iconpacks.net/icons/1/free-trash-icon-347-thumb.png" alt="trash" class="trash-img">
+            <button class='btn-in-post delete' id='deleteBtn' onClick='deleteTweet(${tweet.id})'>Delete</button>
             </div>
           </div>`
           if (currentUser == tweet.author) { FeaturesBtn = features } else { FeaturesBtn = ""}
