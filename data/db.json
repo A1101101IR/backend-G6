@@ -55,22 +55,16 @@
       "id": 18
     },
     {
-      "description": "test hello",
-      "author": "Amir",
-      "date": "Was updated at Friday, 8 April 2022, 10:28",
-      "id": 19
-    },
-    {
-      "description": "Det funkar 🙀",
-      "author": "Amir",
-      "date": "Friday, 8 April 2022, 10:48",
-      "id": 20
-    },
-    {
       "description": "“Truth hurts. Maybe not as much as jumping on a bicycle with a seat missing, but it hurts.”\n—Lt. Frank Drebin (Leslie Nielsen), Naked Gun 2½: The Smell of Fear",
       "author": "Filip",
       "date": "Friday, 8 April 2022, 10:45",
       "id": 21
+    },
+    {
+      "description": "Hello World! 👻",
+      "author": "Amir",
+      "date": "Friday, 8 April 2022, 11:00",
+      "id": 22
     }
   ]
 }
