@@ -137,7 +137,7 @@
     <div class="signInDiv">
     <input type="text" class="field" placeholder="Enter your username">
     </input><button class="big-btns" onClick='SignIn()'>Sign in</button> </div>`;
-    let author = currentUser;
+    
     let WordpressUser = "<?php echo $firstName ?>"
     let localUser = localStorage.getItem('user')
     if (WordpressUser) {
@@ -147,7 +147,7 @@
     } else { 
       currentUser = signInInput 
     };
-    
+    let author = currentUser;
     let currentUserOutput = ` ${currentUser}<div></div>`
     document.getElementById('username').innerHTML = currentUserOutput;
     getTweet();
