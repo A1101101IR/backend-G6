@@ -21,11 +21,10 @@
 
   <!-- våran script tag som innehåller samtliga funktioner. -->
   <script>
-    /* Hämtar data coh skapa inlägg av data */
+    /* Hämtar data coh skapar inlägg av data */
     async function getTweet() {
       let fetchedData = await fetch("http://localhost:8000/tweet", {
         method: 'GET',
-        redirect: 'follow'
       });
       let tweetData = await fetchedData.json();
       let newTweet = "";
@@ -91,7 +90,6 @@
         method: 'POST',
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(tweet),
-        redirect: 'follow'
       })
       document.getElementById('description').value = '';
       getTweet();
@@ -126,7 +124,6 @@
         method: 'PUT',
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(tweet),
-        redirect: 'follow'
       })
       window.location.reload();
     }
@@ -137,11 +134,8 @@
 
     /* tar bort inlägg och gör en reload på sidan för att uppdatera output */
     function deleteTweet(id) {
-      var urlencoded = new URLSearchParams();
       var requestOptions = {
         method: 'DELETE',
-        body: urlencoded,
-        redirect: 'follow'
       };
       fetch(`http://localhost:8000/tweet/${id}`, requestOptions)
         .then(res => res.json())
@@ -176,6 +170,7 @@
     /* If there is any WordpressUser, currentUser = WordpressUser */
     /* else if there is any localUser, currentUser = WordpressUser */
     /* else currentUser = signInInput */
+    
     if (WordpressUser) {
       currentUser = WordpressUser
     } else if (localUser) {
