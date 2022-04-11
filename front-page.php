@@ -3,9 +3,6 @@
 <section class="main-content-container">
     <!-- Vi hämtar user id, sedan hämtar userdata, hämtar user firstName -->
     <div class="text-area-container">
-        <div class="login-header">
-            <!-- <div class="login-avatar"></div> -->
-        </div>
         <div class="submit-body">
             <!-- Textarea för att skicka data vid post req. -->
             <textarea name="description" id="description" maxlength="240" rows="8" cols="80"></textarea>
@@ -21,15 +18,12 @@
 
   <!-- våran script tag som innehåller samtliga funktioner. -->
   <script>
-    /* Hämtar data coh skapa inlägg av data */
-
-    /* Skapar en async func för GET som hämtar och skapar inlägg när funktionen körs.*/
+    /* Hämtar data coh skapar inlägg av data */
     async function getTweet() {
       /* Fetchar datan från NodeJS servern och sparar datan till variabel fetchedData. */
       /* Await säger vänta på datan som skickas - method: get och redirect: follow är på som default men det är kvar för att lättare se var funktionen gör*/
       let fetchedData = await fetch("http://localhost:8000/tweet", {
-        method: 'GET', /* Metod specifieras - GET */
-        redirect: 'follow' /* Redirect: Follow -  Följer HTTP-redirects, detta är default*/
+        method: 'GET',
       });
       /* Tar hämtad data, applicerar .json-metoden för att göra om det till objekt*/
       let tweetData = await fetchedData.json();
@@ -109,7 +103,6 @@
         headers: {"Content-Type": "application/json"},
         /* Tar tweet-variablen och gör det .json format. */
         body: JSON.stringify(tweet),
-        redirect: 'follow'
       })
       /* Resettar värdet i DIV:en */
       document.getElementById('description').value = '';
@@ -149,10 +142,9 @@
       };
       /* ID:et tas från när funktionen mappades ut */
       await fetch(`http://localhost:8000/tweet/${id}`, {
-        method: 'PUT', 
-        headers: {"Content-Type": "application/json"}, /* Ger Meta-data till server om vad som kommer vara i body */
-        body: JSON.stringify(tweet), /* Tar tweet-variablen och gör det .json format. */
-        redirect: 'follow'
+        method: 'PUT',
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(tweet),
       })
       window.location.reload(); /* Refreshar sidan */
     }
@@ -161,13 +153,10 @@
 
 
 
-    /* tar bort inlägg och gör en reload på sidan för att uppdatera output */
+    /* Tar bort inlägg och gör en reload på sidan för att uppdatera output */
     function deleteTweet(id) {
-      var urlencoded = new URLSearchParams();
       var requestOptions = {
         method: 'DELETE',
-        body: urlencoded,
-        redirect: 'follow'
       };
       fetch(`http://localhost:8000/tweet/${id}`, requestOptions)
         .then(res => res.json())
@@ -202,6 +191,7 @@
     /* If there is any WordpressUser, currentUser = WordpressUser */
     /* else if there is any localUser, currentUser = WordpressUser */
     /* else currentUser = signInInput */
+
     if (WordpressUser) {
       currentUser = WordpressUser
     } else if (localUser) {
