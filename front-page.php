@@ -3,9 +3,6 @@
 <section class="main-content-container">
     <!-- Vi hämtar user id, sedan hämtar userdata, hämtar user firstName -->
     <div class="text-area-container">
-        <div class="login-header">
-            <!-- <div class="login-avatar"></div> -->
-        </div>
         <div class="submit-body">
             <!-- Textarea för att skicka data vid post req. -->
             <textarea name="description" id="description" maxlength="240" rows="8" cols="80"></textarea>
@@ -132,7 +129,7 @@
 
 
 
-    /* tar bort inlägg och gör en reload på sidan för att uppdatera output */
+    /* Tar bort inlägg och gör en reload på sidan för att uppdatera output */
     function deleteTweet(id) {
       var requestOptions = {
         method: 'DELETE',
@@ -170,7 +167,7 @@
     /* If there is any WordpressUser, currentUser = WordpressUser */
     /* else if there is any localUser, currentUser = WordpressUser */
     /* else currentUser = signInInput */
-    
+
     if (WordpressUser) {
       currentUser = WordpressUser
     } else if (localUser) {
