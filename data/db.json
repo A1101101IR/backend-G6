@@ -1,0 +1,76 @@
+{
+  "tweet": [
+    {
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen.",
+      "id": 7,
+      "author": "Amir",
+      "date": "Monday, April 3, 2022, 11:32"
+    },
+    {
+      "description": "g Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editorffghg Lorem Ipsum is th ",
+      "id": 9,
+      "author": "Angelica",
+      "date": "Monday, April 4, 2022, 14:15"
+    },
+    {
+      "description": "\"It's time to play 'Is My Kid Hugging Me or Cleaning His Nose or Both?'\"",
+      "author": "Amir",
+      "date": "Tuesday, 5 April 2022, 11:24",
+      "id": 10
+    },
+    {
+      "description": "\"going to the gym to say ooooohhh big stretch at everyone like they’re a cat\"",
+      "author": "Amir",
+      "date": "Was updated at Friday, 8 April 2022, 10:06",
+      "id": 12
+    },
+    {
+      "description": "\"I’ll never forget, a week after quarantine started, I sneezed in the grocery store and a man two aisles over yelled 'AW HELL NAWL.'\"",
+      "author": "Angelica",
+      "date": "Tuesday, 5 April 2022, 11:27",
+      "id": 14
+    },
+    {
+      "description": "If you are feeling groggy and grumpy today, you are not alone.",
+      "author": "Angelica",
+      "date": "Tuesday, 5 April 2022, 11:28",
+      "id": 15
+    },
+    {
+      "description": "\"Imagine playing truth or dare at a party and they dare you to go home\"",
+      "author": "Angelica",
+      "date": "Tuesday, 5 April 2022, 11:29",
+      "id": 16
+    },
+    {
+      "description": "I always take life with a grain of salt. And a slice of lemon. And a shot of tequila. Edit: Remember to get more tequila!",
+      "author": "Filip",
+      "date": "Was updated at Thursday, 7 April 2022, 13:58",
+      "id": 17
+    },
+    {
+      "description": "Some people say I'm too vague...\n\nBut you know how the saying goes :)",
+      "author": "Filip",
+      "date": "Wednesday, 6 April 2022, 08:19",
+      "id": 18
+    },
+    {
+      "description": "“Truth hurts. Maybe not as much as jumping on a bicycle with a seat missing, but it hurts.”\n—Lt. Frank Drebin (Leslie Nielsen), Naked Gun 2½: The Smell of Fear",
+      "author": "Filip",
+      "date": "Friday, 8 April 2022, 10:45",
+      "id": 21
+    },
+    {
+      "description": "testt rtttttttt hello hrkkkgg\n",
+      "author": "Amir",
+      "date": "Was updated at Monday, 11 April 2022, 22:05",
+      "id": 22
+    },
+    {
+      "description": "hello",
+      "author": "Amir",
+      "date": "Monday, 11 April 2022, 22:06",
+      "id": 23
+    }
+  ]
+}
