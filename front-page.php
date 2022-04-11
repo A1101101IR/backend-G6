@@ -22,16 +22,26 @@
   <!-- våran script tag som innehåller samtliga funktioner. -->
   <script>
     /* Hämtar data coh skapa inlägg av data */
+
+    /* Skapar en async func för GET som hämtar och skapar inlägg när funktionen körs.*/
     async function getTweet() {
+      /* Fetchar datan från NodeJS servern och sparar datan till variabel fetchedData. */
+      /* Await säger vänta på datan som skickas - method: get och redirect: follow är på som default men det är kvar för att lättare se var funktionen gör*/
       let fetchedData = await fetch("http://localhost:8000/tweet", {
-        method: 'GET',
-        redirect: 'follow'
+        method: 'GET', /* Metod specifieras - GET */
+        redirect: 'follow' /* Redirect: Follow -  Följer HTTP-redirects, detta är default*/
       });
+      /* Tar hämtad data, applicerar .json-metoden för att göra om det till objekt*/
       let tweetData = await fetchedData.json();
+      /* Tom variable för conditional JS */
       let newTweet = "";
+       /* Tom variable för conditional JS */
       let FeaturesBtn = "";
+      
       if (tweetData) {
-        tweetData.reverse().map((tweet) => {
+        /* .reverse() lägger om datan som mappas så senaste Tweets kommer överst */
+        tweetData.reverse().map((tweet) => { /* Mappar ut datan från tweetData vilket är det vi fetchade från servern */
+          /* features är template för knappar som du kan använda för att editera posts, används tillsammans med contitionals */
           features = `
           <div class="btn-container-post">
             <div></div>
@@ -41,6 +51,8 @@
             <button class='btn-in-post delete' id='deleteBtn' onClick='deleteTweet(${tweet.id})'>Delete</button>
             </div>
           </div>`
+          /* CurrentUser är deklarerad längre ner i slutet */
+          /* Om currenterUser är samma som tweet.author får vi tillgång till knapparna, det inte stämmer får vi inte det */
           if (currentUser == tweet.author) { FeaturesBtn = features } else { FeaturesBtn = ""}
           newTweet += `<div class="tweet-card-container" key={post.id}>  
               <span class="avatar ${tweet.author}"></span>
@@ -71,8 +83,10 @@
 
 
     /* Skapar nya inlägg och skickar till databasen */
-    async function postTweet() {
+    /* Tar */ async function postTweet() {
+      /* Tar värdet från DIV:en och sparar till variabel */
       description = document.getElementById('description').value;
+      /* Author sätts till currentUser */
       author = currentUser;
       if (currentUser == signInInput) {
         alert('Entre a username');
@@ -82,18 +96,24 @@
         alert('You cannot post an empty tweet!');
         return; 
       }
+      /* Sparar datan som ett objekt i variabeln Tweet */
       let tweet = {
         description : description,
         author : author,
         date :  date.toLocaleDateString("en-SE", options), 
       };
+      /* Fetch mot servern med metoden POST */
       await fetch("http://localhost:8000/tweet/", {
         method: 'POST',
+        /* Ger Meta-data till server om vad som kommer vara i body */
         headers: {"Content-Type": "application/json"},
+        /* Tar tweet-variablen och gör det .json format. */
         body: JSON.stringify(tweet),
         redirect: 'follow'
       })
+      /* Resettar värdet i DIV:en */
       document.getElementById('description').value = '';
+      /* Hämtar inläggen igen */
       getTweet();
     };
 
@@ -114,21 +134,27 @@
     
 
 
+    /* Funcktion för att uppdatera ett inlägg */
+    /* ID:et tas från när funktionen mappas ut */
     async function updatePost(id) {
+      /* Tar värdet från elementet */
       newTweet = document.getElementById(id).innerText;
+      /* Sätter author till currentUser */
       author = currentUser;
+      /* Skapar objekt med följande struktur, datan tas från dom två variablerna i början av funktionen */
       let tweet = {
         description : newTweet,
         author : author,
         date :  "Was updated at " + date.toLocaleDateString("en-SE", options), 
       };
+      /* ID:et tas från när funktionen mappades ut */
       await fetch(`http://localhost:8000/tweet/${id}`, {
-        method: 'PUT',
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(tweet),
+        method: 'PUT', 
+        headers: {"Content-Type": "application/json"}, /* Ger Meta-data till server om vad som kommer vara i body */
+        body: JSON.stringify(tweet), /* Tar tweet-variablen och gör det .json format. */
         redirect: 'follow'
       })
-      window.location.reload();
+      window.location.reload(); /* Refreshar sidan */
     }
 
 
